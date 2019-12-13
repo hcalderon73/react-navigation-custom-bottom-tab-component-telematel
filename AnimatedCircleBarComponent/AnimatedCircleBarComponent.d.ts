@@ -43,15 +43,15 @@ declare class AnimatedCircleBarComponent extends React.Component<Props, State> {
         index: number;
         focused: boolean;
         route: any;
-    }) => any;
+    }) => JSX.Element | null;
     renderIcon: (props: {
         index: number;
         route: any;
         focused: boolean;
         forceRender?: boolean | undefined;
-    }) => any;
-    renderAnimatedBackground: () => any;
-    renderActiveItem: () => any;
-    render(): any;
+    }) => React.ReactNode;
+    renderAnimatedBackground: () => JSX.Element;
+    renderActiveItem: () => JSX.Element;
+    render(): JSX.Element;
 }
 export default AnimatedCircleBarComponent;

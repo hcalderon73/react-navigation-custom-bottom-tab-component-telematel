@@ -140,6 +140,9 @@ var FlexibleTabBarComponent = /** @class */ (function (_super) {
         {renderIcon(props)}
       </react_native_1.Animated.View>);
         };
+        _this.setTestID = function (props) {
+            return 'tab-' + props.route.key;
+        };
         _this.onPress = function (_a) {
             var index = _a.index, type = _a.type;
             var _b = _this.props, onPressInScale = _b.onPressInScale, onPressOutScale = _b.onPressOutScale, navigation = _b.navigation;
@@ -179,9 +182,8 @@ var FlexibleTabBarComponent = /** @class */ (function (_super) {
         return (<react_native_1.SafeAreaView style={[styles.container, style]}>
         {this.renderAnimatedBackground()}
         {routes.map(function (route, key) {
-            console.log(route);
             var focused = key === state.index;
-            return (<react_native_1.TouchableWithoutFeedback delayPressIn={200} onPressIn={function () { return _this.onPress({ index: key, type: PressTypes.IN }); }} onPressOut={function () { return _this.onPress({ index: key, type: PressTypes.OUT }); }} onPress={function () { return onTabPress({ route: route }); }} {...{ key: key }}>
+            return (<react_native_1.TouchableWithoutFeedback testID={_this.setTestID({ route: route })} delayPressIn={200} onPressIn={function () { return _this.onPress({ index: key, type: PressTypes.IN }); }} onPressOut={function () { return _this.onPress({ index: key, type: PressTypes.OUT }); }} onPress={function () { return onTabPress({ route: route }); }} {...{ key: key }}>
               <react_native_1.Animated.View style={[
                 styles.tabBarContainer,
                 {

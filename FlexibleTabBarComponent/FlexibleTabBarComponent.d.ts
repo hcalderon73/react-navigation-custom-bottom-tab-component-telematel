@@ -30,9 +30,13 @@ interface TabBarComponentProps {
         route: any;
     }) => void;
     renderIcon?: any;
+    setTestID?: (props: {
+        route: any;
+    }) => string;
     getLabelText: (props: {
         route: any;
     }) => any;
+    testID?: string;
 }
 declare type Props = OverwriteProps & TabBarComponentProps;
 declare class FlexibleTabBarComponent extends React.Component<Props> {
@@ -54,21 +58,24 @@ declare class FlexibleTabBarComponent extends React.Component<Props> {
     shouldComponentUpdate(nextProps: Readonly<Props>): boolean;
     componentDidUpdate(prevProps: Readonly<TabBarComponentProps>): void;
     navigateAnimation: (prevItemIndex: number) => void;
-    renderAnimatedBackground: () => any;
+    renderAnimatedBackground: () => JSX.Element;
     renderLabel: ({ index, focused, route }: {
         index: number;
         focused: boolean;
         route: any;
-    }) => any;
+    }) => JSX.Element | null;
     renderIcon: (props: {
         index: number;
         route: any;
         focused: boolean;
-    }) => any;
+    }) => React.ReactNode;
+    setTestID: (props: {
+        route: any;
+    }) => string;
     onPress: ({ index, type }: {
         index: number;
         type: PressTypes;
     }) => void;
-    render(): any;
+    render(): JSX.Element;
 }
 export default FlexibleTabBarComponent;
